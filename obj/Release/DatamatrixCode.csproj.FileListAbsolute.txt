@@ -13,4 +13,3 @@ F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.cspr
 F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.exe
 F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.pdb
 F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\System.IO.Compression.dll
-F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.csprojAssemblyReference.cache

@@ -27,11 +27,21 @@ namespace DatamatrixCode
 
 					g.DrawImage(bitmapModel.bitmap, Point.Empty);
 
+					var rightAlligned = new StringFormat();
+					rightAlligned.Alignment = StringAlignment.Far;
+
 					g.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-					g.DrawString("PC: " + bitmapModel.ProductCode, new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 5));
-					g.DrawString("Ch.-B.: " + bitmapModel.Batch, new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 55));
-					g.DrawString("Verw.bis.: " + bitmapModel.Exp, new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 105));
-					g.DrawString("SN: " + bitmapModel.SerialNumber, new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 155));
+					g.DrawString("PC: ", new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 5));
+					g.DrawString(bitmapModel.ProductCode, new Font("Tahoma", 14), Brushes.Black, new PointF(formattedBitmap.Width - 5, 5), rightAlligned);
+
+					g.DrawString("Ch.-B.: ", new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 55));
+					g.DrawString(bitmapModel.Batch, new Font("Tahoma", 14), Brushes.Black, new PointF(formattedBitmap.Width - 5, 55), rightAlligned);
+
+					g.DrawString("Verw.bis.: ", new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 105));
+					g.DrawString(bitmapModel.Exp, new Font("Tahoma", 14), Brushes.Black, new PointF(formattedBitmap.Width - 5, 105), rightAlligned);
+
+					g.DrawString("SN: ", new Font("Tahoma", 14), Brushes.Black, new PointF((formattedBitmap.Width / 2) + 5, 155));
+					g.DrawString(bitmapModel.SerialNumber, new Font("Tahoma", 14), Brushes.Black, new PointF(formattedBitmap.Width - 5, 155), rightAlligned);
 
 					// PC:
 					// Ch.-B.:
