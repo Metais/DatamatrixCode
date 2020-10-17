@@ -1,0 +1,15 @@
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\DatamatrixCode.exe.config
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\DatamatrixCode.exe
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\DatamatrixCode.pdb
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\DataMatrix.net.dll
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\ExcelDataReader.DataSet.dll
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\ExcelDataReader.dll
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\ExcelDataReader.pdb
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\ExcelDataReader.xml
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\ExcelDataReader.DataSet.pdb
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\ExcelDataReader.DataSet.xml
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.csproj.CoreCompileInputs.cache
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.csproj.CopyComplete
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.exe
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Release\DatamatrixCode.pdb
+F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Release\System.IO.Compression.dll
