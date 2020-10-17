@@ -39,6 +39,13 @@ namespace DatamatrixCode
             for (var i = 0; i < this.table.Rows.Count; i++)
             {
                 productCode = this.table.Rows[i][0].ToString();
+                if (productCode.Length < 14)
+                {
+                    while (productCode.Length != 14)
+                    {
+                        productCode = "0" + productCode;
+                    }
+                }
                 batch = this.table.Rows[i][1].ToString();
                 exp = this.table.Rows[i][2].ToString();
                 serialNumber = this.table.Rows[i][3].ToString();
@@ -52,6 +59,8 @@ namespace DatamatrixCode
                     bitmap = bitmap,
                     ProductCode = productCode,
                     Batch = batch,
+                    SerialNumber = serialNumber,
+                    Exp = exp,
                     RunningNumber = (i + 1).ToString("00000")
                 };
                 bitmaps.Add(model);
@@ -74,14 +83,6 @@ namespace DatamatrixCode
 
         private string EncodeProduct(string productCode, string batch, string exp, string serialNumber)
         {
-            if (productCode.Length < 14)
-            {
-                while (productCode.Length != 14)
-                {
-                    productCode = "0" + productCode;
-                }
-            }
-
             return $"01{productCode}21{serialNumber}\u001d10{batch}\u001d17{exp}";
         }
     }

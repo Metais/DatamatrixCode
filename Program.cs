@@ -17,9 +17,9 @@ namespace DatamatrixCode
         static readonly DmtxImageEncoderOptions EncoderOptions = new DmtxImageEncoderOptions()
         {
             ForeColor = Color.Black,
-            BackColor = Color.White,
+            BackColor = Color.Transparent,
             ModuleSize = 8,
-            MarginSize = 100,
+            MarginSize = 5,
             Scheme = DmtxScheme.DmtxSchemeAsciiGS1
         };
 

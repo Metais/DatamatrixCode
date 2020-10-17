@@ -13,4 +13,3 @@ F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Debug\ExcelDataReader.xml
 F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Debug\ExcelDataReader.DataSet.pdb
 F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Debug\ExcelDataReader.DataSet.xml
 F:\Development\GLM\DatamatrixCode\DatamatrixCode\bin\Debug\System.IO.Compression.dll
-F:\Development\GLM\DatamatrixCode\DatamatrixCode\obj\Debug\DatamatrixCode.csprojAssemblyReference.cache

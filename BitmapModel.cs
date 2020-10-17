@@ -7,6 +7,8 @@ namespace DatamatrixCode
 		public Bitmap bitmap { get; set; }
 		public string ProductCode { get; set; }
 		public string Batch { get; set; }
+		public string SerialNumber { get; set; }
+		public string Exp { get; set; }
 		public string RunningNumber { get; set; }
 	}
 }
