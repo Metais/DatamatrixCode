@@ -32,12 +32,6 @@ namespace DatamatrixCode
                 ErrorPrompt.errorPrompt("Please enter some files into the 'InputFiles' directory!");
 			}
 
-            bool isHorizontal = DirectionQuestion();
-            Console.WriteLine("\nWill print in " + (isHorizontal ? "horizontal" : "vertical") + " direction...");
-
-            bool textOnSameDirection = TextPositionQuestion();
-            Console.WriteLine("\nWill write text in " + (textOnSameDirection ? "same path as code" : "wider area"));
-
             foreach (var file in filesInDirectory)
 			{
 
@@ -56,68 +50,35 @@ namespace DatamatrixCode
 
                 var bitmaps = new ExcelToBitmapConverter(dataTable, EncoderOptions).CreateBitmapsFromExcel();
 
-                var formattedBitmaps = new BitmapsFormatter(bitmaps).FormatBitmaps(isHorizontal, textOnSameDirection);
+                var formattedBitmaps = new BitmapsFormatter(bitmaps).FormatBitmaps();
 
-                SaveBitmap(file, formattedBitmaps);
+                SaveBitmaps(file, formattedBitmaps);
             }
-            
-        }
 
-        private static void SaveBitmap(string file, Bitmap bitmap)
+            Console.WriteLine("Finished. Press any key to exit.");
+            Console.Read();
+            Environment.Exit(-1);
+        }
+        
+        private static void SaveBitmaps(string excelFile, List<BitmapModel> bitmaps)
 		{
-            try
-            {
-                var fileName = file.Remove(file.LastIndexOf('.'));
-                fileName = fileName.Substring(file.LastIndexOf('\\'));
-                bitmap.Save("OutputFiles/" + fileName + "Processed.png", ImageFormat.Png);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("When saving the datamatrix image an exception occurred:\n{0}", ex.Message);
-            }
-        }
+            foreach(var bitmapModel in bitmaps)
+			{
+                try
+                {
+                    var directoryName = excelFile.Remove(excelFile.LastIndexOf('.'));
+                    directoryName = directoryName.Substring(excelFile.LastIndexOf('\\'));
+                    Directory.CreateDirectory($"OutputFiles/{directoryName}");
 
-        private static bool DirectionQuestion()
-		{
-            bool isHorizontal = true;
-
-            Console.WriteLine("Would you like to print (h)orizontal or (v)ertical?");
-            var directionAnswer = Console.ReadKey().Key;
-            if (directionAnswer == ConsoleKey.H)
-            {
-                isHorizontal = true;
-            }
-            else if (directionAnswer == ConsoleKey.V)
-            {
-                isHorizontal = false;
-            }
-            else
-            {
-                ErrorPrompt.errorPrompt("Please enter either [h] or [v]!");
+                    var fileName = $"OutputFiles/{directoryName}/{bitmapModel.ProductCode} - {bitmapModel.Batch} - {bitmapModel.RunningNumber}.png";
+                    bitmapModel.bitmap.Save(fileName, ImageFormat.Png);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"When saving the datamatrix image an exception occurred when handling number {bitmapModel.RunningNumber}:\n{0}", ex.Message);
+                }
             }
 
-            return isHorizontal;
-        }
-
-        private static bool TextPositionQuestion()
-        {
-            bool textOnSameDirection = true;
-            Console.WriteLine("Do you want the text in the [s]ame line/path as the code, or [n]ext to it? (same line = longer line, next to it = wider paper)");
-            var textPositionAnswer = Console.ReadKey().Key;
-            if (textPositionAnswer == ConsoleKey.S)
-            {
-                textOnSameDirection = true;
-            }
-            else if (textPositionAnswer == ConsoleKey.N)
-            {
-                textOnSameDirection = false;
-            }
-            else
-            {
-                ErrorPrompt.errorPrompt("Please enter either [s] or [n]!");
-            }
-
-            return textOnSameDirection;
         }
 
     }

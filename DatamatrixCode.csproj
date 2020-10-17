@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BitmapModel.cs" />
     <Compile Include="BitmapsFormatter.cs" />
     <Compile Include="ErrorPrompt.cs" />
     <Compile Include="ExcelReader.cs" />

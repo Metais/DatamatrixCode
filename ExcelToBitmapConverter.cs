@@ -17,7 +17,7 @@ namespace DatamatrixCode
             this.encoderOptions = encoderOptions;
 		}
 
-		public List<Bitmap> CreateBitmapsFromExcel()
+		public List<BitmapModel> CreateBitmapsFromExcel()
 		{
             if (this.table.Rows.Count < 1)
             {
@@ -28,7 +28,7 @@ namespace DatamatrixCode
             string batch;
             string exp;
             string serialNumber;
-            List<Bitmap> bitmaps = new List<Bitmap>();
+            List<BitmapModel> bitmaps = new List<BitmapModel>();
             DmtxImageEncoder encoder = new DmtxImageEncoder();
 
             // Keep track of all serialNumbers to ensure there's no duplicate
@@ -46,7 +46,15 @@ namespace DatamatrixCode
 
                 var bitmapCodeString = EncodeProduct(productCode, batch, exp, serialNumber);
                 var bitmap = encoder.EncodeImage(bitmapCodeString, this.encoderOptions);
-                bitmaps.Add(bitmap);
+
+                var model = new BitmapModel()
+                {
+                    bitmap = bitmap,
+                    ProductCode = productCode,
+                    Batch = batch,
+                    RunningNumber = (i + 1).ToString("00000")
+                };
+                bitmaps.Add(model);
             }
 
             if (serialNumbers.Distinct().Count() != serialNumbers.Count)
